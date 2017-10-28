@@ -13,7 +13,7 @@ void setup() {
   pinMode (led , OUTPUT );
   pinMode (botao , INPUT);
   motor.attach (SERVO);
-  motor.write(30); 
+  motor.write(30);
   //motor.write (100);//posição zero do motor
 }
 
@@ -23,21 +23,25 @@ void loop() {
     Serial.println(ultimoEstado);
     if (ultimoEstado == 0) {
       ultimoEstado = 1;
-      digitalWrite(led , HIGH);
-      for (pos = 30; pos <= 120; pos++){
-      motor.write(pos);
-      delay(15);
+      for (pos = 30; pos <= 120; pos++) {
+        motor.write(pos);
+        delay(15);
       }
+      delay (500);
+      digitalWrite(led , HIGH);
+
     }
     else {
       ultimoEstado = 0;
-      digitalWrite(led , LOW);
-      for (pos = 120; pos >= 30; pos--){
-      motor.write(pos);
-      delay(15);
+      for (pos = 120; pos >= 30; pos--) {
+        motor.write(pos);
+        delay(15);
       }
+      delay (500);
+      digitalWrite(led , LOW);
+
     }
-    
+
     delay(500);
   }
 
