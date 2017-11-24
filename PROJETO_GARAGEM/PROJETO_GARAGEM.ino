@@ -6,7 +6,7 @@ int led = A0;
 int botao = 12;
 int estadobotao = LOW;
 int estadoLed = LOW;
-int ultimoEstado = 0;
+int ultimoEstado = 1;
 
 void setup() {
   Serial.begin(9600);
